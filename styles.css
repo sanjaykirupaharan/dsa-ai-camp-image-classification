@@ -30,6 +30,10 @@ canvas {
   max-height: 100%;
 }
 
+video {
+  border: none;
+}
+
 canvas {
   border: 5px solid #f78306;
   margin-top: 100px;
