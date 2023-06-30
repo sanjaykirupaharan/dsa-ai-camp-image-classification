@@ -77,7 +77,7 @@ function gotResult(error, results) {
   if (label == 'helmet') {
     counter++;
     // Play sound if "helmet" is continuously predicted for 5 times
-    if (counter >= 25) {
+    if (counter >= 2) {
       audio.play();
       counter = 0; // Reset the counter
     }
