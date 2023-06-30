@@ -17,13 +17,8 @@ let imageModelURL = 'https://teachablemachine.withgoogle.com/models/bmvOjW7n6/';
 // Video
 let video;
 let flippedVideo;
-
-let constraints;
-
 // To store the classification
 let label = '';
-
-// To store the sound
 const audio = document.getElementById('myAudio');
 
 let counter = 0;
@@ -39,15 +34,8 @@ function setup() {
   const canvasSize = containerWidth * 0.8; // You can adjust the percentage as needed
 
   createCanvas(canvasSize, canvasSize * (3 / 4)); // Adjust the aspect ratio as needed
-  constraints = {
-    video: { facingMode: 'environment' }, // "environment" for rear camera, "user" for front camera
-  };
   // Create the video
-  video = createCapture(constraints, function (stream) {
-    // Stream loaded callback
-    video.play();
-  });
-
+  video = createCapture(VIDEO);
   video.size(canvasSize, canvasSize * (3 / 4));
   video.hide();
 
@@ -99,23 +87,4 @@ function gotResult(error, results) {
 
   // Classifiy again!
   classifyVideo();
-}
-
-// Function to switch the camera
-function switchCamera() {
-  // Stop the current video stream
-  video.stop();
-
-  // Toggle the camera facing mode
-  if (constraints.video.facingMode === 'environment') {
-    constraints.video.facingMode = 'user';
-  } else {
-    constraints.video.facingMode = 'environment';
-  }
-
-  // Create a new video element with the updated constraints
-  video = createCapture(constraints, function (stream) {
-    // Stream loaded callback
-    video.play();
-  });
 }
