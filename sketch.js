@@ -12,7 +12,7 @@ This example uses p5 preload function to create the classifier
 // Classifier Variable
 let classifier;
 // Model URL
-let imageModelURL = 'https://teachablemachine.withgoogle.com/models/Ds7DY18kd/';
+let imageModelURL = 'https://teachablemachine.withgoogle.com/models/w9s2b6M3p/';
 
 // Video
 let video;
@@ -74,7 +74,7 @@ function gotResult(error, results) {
   label = results[0].label;
 
   // play sound
-  if (label == 'helmet') {
+  if (label == 'with-obstacles') {
     counter++;
     // Play sound if "helmet" is continuously predicted for 5 times
     if (counter >= 2) {
